@@ -1,0 +1,75 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-header-height: 4rem;
+  --app-sidebar-width: 14rem;
+
+  @media (max-width: 768px) {
+    --app-sidebar-width: 0 !important;
+  }
+}
+
+.highcharts-credits {
+  display: none;
+}
+
+svelte-virtual-list-viewport {
+  @apply scrollbar [&::-webkit-scrollbar]:w-2.5;
+}
+
+body {
+  font-family: 'Open Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  @apply bg-white dark:bg-white;
+}
+
+body > div {
+  @apply first:min-h-screen;
+}
+
+@layer components {
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(209 209 211 / var(--tw-bg-opacity)) rgb(242, 243, 244);
+    @apply overflow-auto;
+  }
+
+  .dark .scrollbar {
+    scrollbar-color: rgb(66, 66, 66) rgb(38, 38, 38);
+  }
+
+  @media (pointer: fine) {
+    .scrollbar::-webkit-scrollbar {
+      @apply my-0 h-[0.4rem] w-2;
+    }
+
+    /* .scrollbar::-webkit-scrollbar-button {
+        @apply text-white dark:text-black;
+    } */
+
+    .scrollbar::-webkit-scrollbar-thumb,
+    .scrollbar::-webkit-scrollbar-track {
+      @apply rounded-full;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      @apply bg-[rgb(209,209,211)];
+    }
+
+    .auto-hide-scroll-thumb::-webkit-scrollbar-thumb,
+    .scrollbar::-webkit-scrollbar-track {
+      @apply rounded-full bg-transparent;
+    }
+
+    .scrollbar:hover::-webkit-scrollbar-thumb {
+      @apply bg-[rgb(209,209,211)] hover:shadow-[inset_0_0_100px_100px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_0_100px_100px_rgba(0,0,0,0.3)];
+    }
+
+    .scrollbar:hover::-webkit-scrollbar-track {
+      @apply hover:bg-[rgb(242,243,244)] dark:hover:bg-[rgb(38,38,38)];
+    }
+  }
+}
