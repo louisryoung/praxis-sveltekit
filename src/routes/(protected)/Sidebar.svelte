@@ -112,7 +112,8 @@
     class="relative mt-16 inline-flex w-full items-start justify-start text-left text-white"
   />
   <nav class="w-full">
-    <ul class="mt-16 flex w-full flex-col items-center justify-start">
+    <img src="favicon.png" alt="" />
+    <ul class="mt-2 flex w-full flex-col items-center justify-start">
       {#each navItems as item (item.name)}
         {@const active = activeMatch === item.href}
         <li class="w-full">
