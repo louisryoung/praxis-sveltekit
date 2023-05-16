@@ -348,6 +348,10 @@
       class="grid grid-cols-7 gap-px border-b border-neutral-300 bg-neutral-200 text-center text-xs font-semibold leading-6 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 lg:flex-none"
     >
       <div class="flex justify-center bg-white py-2 dark:bg-black">
+        <span>S</span>
+        <span class="sr-only sm:not-sr-only">un</span>
+      </div>
+      <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>M</span>
         <span class="sr-only sm:not-sr-only">on</span>
       </div>
@@ -361,7 +365,7 @@
       </div>
       <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>T</span>
-        <span class="sr-only sm:not-sr-only">hu</span>
+        <span class="sr-only sm:not-sr-only">hr</span>
       </div>
       <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>F</span>
@@ -370,10 +374,6 @@
       <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>S</span>
         <span class="sr-only sm:not-sr-only">at</span>
-      </div>
-      <div class="flex justify-center bg-white py-2 dark:bg-black">
-        <span>S</span>
-        <span class="sr-only sm:not-sr-only">un</span>
       </div>
     </div>
     <div
