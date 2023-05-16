@@ -244,20 +244,6 @@
                 <!-- Active: "bg-neutral-100 text-neutral-900", Not Active: "text-neutral-700 dark:text-neutral-300" -->
                 <a
                   href="#"
-                  class="pointer-events-none block px-4 py-2 text-sm text-neutral-700 opacity-50 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0">Day view</a
-                >
-                <a
-                  href="#"
-                  class="pointer-events-none block px-4 py-2 text-sm text-neutral-700 opacity-50 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-1">Week view</a
-                >
-                <a
-                  href="#"
                   class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
                   role="menuitem"
                   tabindex="-1"
@@ -265,13 +251,6 @@
                 >
                   Month view
                 </a>
-                <a
-                  href="#"
-                  class="pointer-events-none block px-4 py-2 text-sm text-neutral-700 opacity-50 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-3">Year view</a
-                >
               </div>
             </div>
           {/if}
