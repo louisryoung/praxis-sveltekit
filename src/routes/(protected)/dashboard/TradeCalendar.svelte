@@ -390,7 +390,7 @@
             ? 'bg-white dark:bg-black'
             : 'bg-neutral-50 dark:bg-black/60 text-neutral-500'}
           {@const s = isSelected
-            ? 'font-semibold bg-primary-500/[0.01] !text-black hover:text-black'
+            ? 'font-semibold !bg-sky-500 !text-black !hover:text-black'
             : ''}
           {@const t = isToday
             ? 'p-1 h-6 w-6 rounded-full bg-black dark:bg-white dark:text-black font-semibold text-white'
@@ -398,7 +398,10 @@
           {@const netPL = tradeData?.[dateStr]?.netPL}
 
           <div
-            class="relative min-h-[5.25rem] py-2 px-3 text-right text-neutral-600 dark:text-neutral-400 {cm}"
+            class="relative min-h-[5.25rem] py-2 px-3 text-right text-neutral-600 dark:text-neutral-400 cursor-pointer {cm} {s}"
+            on:dblclick={() => {
+              isSelected = !isSelected
+            }}
           >
             {#if (tradeData?.[dateStr]?.trades?.length ?? 0) > 0}
               <a
