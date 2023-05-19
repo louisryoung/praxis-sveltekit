@@ -60,5 +60,8 @@
     "vite": "^4.2.0",
     "zod": "^3.21.4"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-date-range-select": "^1.0.4"
+  }
 }

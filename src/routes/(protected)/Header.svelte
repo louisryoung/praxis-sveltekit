@@ -7,6 +7,7 @@
   import { fixedHeader } from '$lib/stores/components';
   import CircleSpinner from '$lib/components/loaders/spinners/CircleSpinner.svelte';
   import { scale } from 'svelte/transition';
+  import DateRange from 'svelte-date-range-select';
 
   export let scrollContainer: HTMLElement | null = null;
 
@@ -58,8 +59,11 @@
     ? 'transition-none'
     : 'transition-[transform,color] duration-300 [&:not(.show):not(:focus-within)]:visible [&:not(.show):not(:focus-within)]:-translate-y-[calc(100%+5rem)] [&:not(.show):not(:focus-within)]:transition-none'}"
 >
-  <div class="flex h-full items-center gap-4  py-2 px-8  sm:gap-6 lg:gap-8">
-    <ThemeToggle class="ml-auto" />
+  <div class="flex h-full items-center justify-end py-2 px-8  sm:gap-4 lg:gap-6">
+    <div class="date-range-picker flex items-center">
+      <DateRange/>
+    </div>
+    <ThemeToggle/>
     <button
       type="button"
       class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 dark:focus:ring-offset-black"
@@ -161,4 +165,5 @@
   header {
     grid-area: header;
   }
+
 </style>

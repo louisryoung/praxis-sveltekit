@@ -30,6 +30,23 @@ body > div {
   @apply first:min-h-screen;
 }
 
+.date-range-picker > input[type="range"] {
+  @apply hidden;
+}
+
+.date-range-picker > input[type="date"] {
+  @apply mb-0;
+}
+
+.date-range-picker > span {
+  @apply hidden;
+}
+
+.date-range-picker button {
+  width: auto !important;
+  align-content: center;
+}
+
 @layer components {
   .scrollbar {
     scrollbar-width: thin;
