@@ -176,7 +176,7 @@ onMount(()=> {
 
 <div class="dashboard relative w-full">
   <div
-    class="stats scrollbar auto-hide-scroll-thumb sticky top-0 mt-5 hidden h-[calc(100vh-var(--app-header-height))] w-80 2xl:block"
+    class="stats scrollbar auto-hide-scroll-thumb sticky top-0 mt-5 hidden h-[calc(100vh-var(--app-header-height))] w-64 xl:w-80 md:block"
   >
     <div class="sticky top-0 z-[1] w-full">
       <div class="w-full bg-white px-4 pt-4 dark:bg-black">

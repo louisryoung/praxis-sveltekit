@@ -62,6 +62,15 @@
   <div class="flex h-full items-center justify-end py-2 px-8  sm:gap-4 lg:gap-6">
     <div class="date-range-picker flex items-center">
       <DateRange/>
+      <select
+      name="trading_accounts"
+      id="trading-accounts"
+      class="ml-4 block w-40  rounded-md border-neutral-300 pr-12 shadow-sm transition-colors duration-300 ease-in-out focus:border-teal-500 focus:ring-teal-500 dark:border-neutral-700 dark:bg-black dark:text-white sm:text-sm"
+    >
+      {#each $page?.data?.tradingAccounts || [] as tradingAccount}
+        <option value="volvo">{tradingAccount.name}</option>
+      {/each}
+    </select>
     </div>
     <ThemeToggle/>
     <button

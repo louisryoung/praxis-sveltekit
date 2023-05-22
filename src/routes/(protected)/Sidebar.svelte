@@ -14,6 +14,11 @@
       href: '/',
     },
     {
+      name: 'Trading Accounts',
+      icon: 'accounts',
+      href: '/tradingaccounts',
+    },
+    {
       name: 'My Trades',
       icon: 'arrow-trending-up',
       href: '/trades',
