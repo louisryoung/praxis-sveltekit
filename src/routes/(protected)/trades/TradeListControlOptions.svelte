@@ -3,13 +3,121 @@
   import { scale } from 'svelte/transition';
   import { clickOutside } from '$lib/actions/clickOutside';
   import { tradeColumns as columns } from '$lib/stores/tables';
-
+  import { Select } from 'flowbite-svelte';
+  import MultiSelect from 'svelte-multiselect-new';
   const dispatch = createEventDispatcher();
 
-  let showFilters = false;
-  let showColumns = false;
+  let showFilters: boolean = false;
+  let showColumns: boolean = false;
 
-  let selectAllColumns = true;
+  let selectAllColumns: boolean = true;
+
+  let selected: string;
+  let selectedSymbol: string;
+  let selectedIntraday: string;
+  let selectedInstrument: string;
+  let selectedSide: string;
+  let selectedMistakeValues: string[] = [];
+  let selectedStatusValues: string[] = [];
+  let selectedPlayBookValues: string[] = [];
+  let FTOpenCloseOptions = [
+    { value: 'open', name: 'open' },
+    { value: 'close', name: 'closed' },
+  ];
+
+  let FTSetupOptions = [
+    {
+      label: 'earnings and winner',
+      value: 'earnings and winner',
+    },
+    {
+      label: 'gap and go',
+      value: 'gap and go',
+    },
+  ];
+
+  let FTIntradayOptions = [
+    {
+      value: 'intraday',
+      name: 'Intraday',
+    },
+    {
+      value: 'swing',
+      name: 'Swing',
+    },
+  ];
+
+  let FTSymbolOptions = [
+    {
+      value: 'meta',
+      name: 'Meta',
+    },
+    {
+      value: 'panw',
+      name: 'PANW',
+    },
+  ];
+
+  let FTInstrumentOptions = [
+    {
+      value: 'mobile',
+      name: 'mobile',
+    },
+    {
+      value: 'desktop',
+      name: 'desktop',
+    },
+  ];
+
+  let FTMistakeOptions = [
+    {
+      label: 'chased',
+      value: 'chased',
+    },
+    {
+      label: 'did not losses quickly',
+      value: 'did not losses quickly',
+    },
+    {
+      label: 'fomo',
+      value: 'fomo',
+    },
+  ];
+
+  let FTStatusOptions = [
+    {
+      label: 'Win',
+      value: 'win',
+    },
+    {
+      label: 'Loss',
+      value: 'loss',
+    },
+    {
+      label: 'Break even',
+      value: 'break even',
+    },
+  ];
+
+  let FTPlayBookOptions = [
+    {
+      label: 'Algo',
+      value: 'algo',
+    },
+  ];
+
+  let FTSideOptions = [
+    {
+      value: 'long',
+      name: 'Long',
+    },
+    {
+      value: 'short',
+      name: 'Short',
+    },
+  ];
+
+  let selectedSetupValues: string[] = [];
 
   const handleSelectAllColumns = () => {
     const selectedCount = Object.values($columns).filter(
@@ -26,6 +134,14 @@
   };
 
   let someColumnsSelected = false;
+
+  const cancel = () => {
+    console.log('cancel');
+  };
+
+  const applyFilters = () => {
+    console.log('apply filters');
+  };
 
   $: {
     const selectedCount = Object.values($columns).filter(
@@ -114,7 +230,7 @@
     </button>
     {#if showColumns}
       <div
-        class="absolute top-0 right-0 z-[15] mt-12 w-40 origin-top-right divide-y divide-neutral-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-neutral-900 dark:bg-black dark:text-white dark:ring-white dark:ring-opacity-20"
+        class="absolute right-0 top-0 z-[15] mt-12 w-40 origin-top-right divide-y divide-neutral-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-neutral-900 dark:bg-black dark:text-white dark:ring-white dark:ring-opacity-20"
         role="menu"
         aria-orientation="vertical"
         tabindex="-1"
@@ -179,7 +295,7 @@
           </fieldset>
           <button
             type="submit"
-            class="w-full rounded-md bg-teal-500 px-2 py-1 text-white transition-colors duration-200 ease-in-out  hover:bg-teal-600 active:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700 dark:active:bg-teal-800"
+            class="w-full rounded-md bg-teal-500 px-2 py-1 text-white transition-colors duration-200 ease-in-out hover:bg-teal-600 active:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-700 dark:active:bg-teal-800"
           >
             <span class="text-sm font-medium capitalize">save</span>
           </button>
@@ -229,7 +345,7 @@
     </button>
     {#if showFilters}
       <div
-        class="absolute top-0 right-0 z-[15] mt-12 w-56 origin-top-right divide-y divide-neutral-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-neutral-900 dark:bg-black dark:text-white dark:ring-white dark:ring-opacity-20"
+        class="absolute right-0 top-0 z-[15] mt-12 w-[31rem] origin-top-right divide-y divide-neutral-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-neutral-900 dark:bg-emerald-500 dark:text-white dark:ring-white dark:ring-opacity-20"
         role="menu"
         aria-orientation="vertical"
         tabindex="-1"
@@ -244,18 +360,108 @@
         }}
       >
         <!-- coming soon -->
-        <div class="py-1" role="none">
-          <a
-            href="#"
-            class="block px-4 py-4 text-center text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-neutral-100"
-            role="menuitem"
-            tabindex="-1"
-            id="trade-list-filter-item-0"
-          >
-            Coming soon
-          </a>
+        <div class="p-1" role="none">
+          <div class="grid grid-cols-2 gap-1 text-gray-300">
+            <div class="col-span-1">
+              <Select
+                class="mt-2 cursor-pointer bg-black text-white"
+                items={FTOpenCloseOptions}
+                bind:value={selected}
+                placeholder="Open/Closed"
+              />
+              <MultiSelect
+                options={FTSetupOptions}
+                placeholder="Setups"
+                bind:selectedValues={selectedSetupValues}
+              />
+              <Select
+                class="mb-[16px] mt-2 cursor-pointer bg-black text-white"
+                items={FTIntradayOptions}
+                bind:value={selectedIntraday}
+                placeholder="Custom"
+                disabled
+              />
+              <Select
+                class="mb-[16px] mt-2 cursor-pointer bg-black text-white"
+                items={FTIntradayOptions}
+                bind:value={selectedIntraday}
+                placeholder="Intraday/Swing"
+              />
+              <Select
+                class="mb-[16px] mt-2 cursor-pointer bg-black text-white"
+                items={FTSymbolOptions}
+                bind:value={selectedSymbol}
+                placeholder="Symbol"
+              />
+            </div>
+            <div class="col-span-1">
+              <Select
+                class="mt-2 cursor-pointer bg-black text-white"
+                items={FTInstrumentOptions}
+                bind:value={selectedInstrument}
+                placeholder="Instrument"
+              />
+              <MultiSelect
+                options={FTMistakeOptions}
+                placeholder="Mistakes"
+                bind:selectedValues={selectedMistakeValues}
+              />
+              <MultiSelect
+                options={FTStatusOptions}
+                placeholder="Status"
+                bind:selectedValues={selectedStatusValues}
+              />
+              <Select
+                class="cursor-pointer bg-black text-white"
+                placeholder="Side"
+                items={FTSideOptions}
+                bind:value={selectedSide}
+              />
+              <MultiSelect
+                options={FTPlayBookOptions}
+                placeholder="Playbook"
+                bind:selectedValues={selectedPlayBookValues}
+              />
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="button"
+              class="mr-2 rounded-lg border border-neutral-200 px-4 py-2 text-sm transition-colors duration-200 ease-in-out hover:bg-neutral-100 dark:border-neutral-800 dark:bg-black dark:text-white dark:hover:bg-neutral-900"
+              on:click={() => {
+                showFilters = false;
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="rounded-lg border border-neutral-200 px-4 py-2 text-sm transition-colors duration-200 ease-in-out hover:bg-neutral-100 dark:border-neutral-800 dark:bg-black dark:text-white dark:hover:bg-neutral-900"
+              on:click={() => {
+                showFilters = false;
+              }}
+            >
+              Apply Filters
+            </button>
+          </div>
         </div>
       </div>
     {/if}
   </div>
 </div>
+
+<style global lang="postcss">
+  div.multiselect {
+    @apply min-h-[39px] cursor-pointer rounded-[8px] !bg-black;
+  }
+  .multiselect ul {
+    @apply bg-black text-white;
+  }
+
+  .multiselect ul li:hover {
+    @apply bg-blue-500 text-white;
+  }
+  .multiselect .remove-all {
+    @apply hidden;
+  }
+</style>

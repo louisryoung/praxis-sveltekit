@@ -62,6 +62,8 @@
   },
   "type": "module",
   "dependencies": {
-    "svelte-date-range-select": "^1.0.4"
+    "flowbite-svelte": "^0.36.4",
+    "svelte-date-range-select": "^1.0.4",
+    "svelte-multiselect-new": "^4.0.7"
   }
 }
