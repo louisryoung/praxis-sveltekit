@@ -484,15 +484,15 @@
               role="list"
               class="flex items-center justify-start text-teal-600"
             >
-            {#each (row?.inputs?.setups ?? []) as setup}
-            <li>
-              <Tag text="{setup}" color={959987}>
-                <span slot="text" let:text class="font-medium capitalize">
-                  {text}
-                </span>
-              </Tag>
-            </li>
-          {/each}
+              {#each row?.inputs?.setups ?? [] as setup}
+                <li>
+                  <Tag text={setup} color={959987}>
+                    <span slot="text" let:text class="font-medium capitalize">
+                      {text}
+                    </span>
+                  </Tag>
+                </li>
+              {/each}
             </ul>
           </td>
         {/if}
@@ -507,9 +507,9 @@
               role="list"
               class="flex items-center justify-start text-teal-600"
             >
-              {#each (row?.inputs?.mistakes ?? []) as mistake}
+              {#each row?.inputs?.mistakes ?? [] as mistake}
                 <li>
-                  <Tag text="{mistake}" color={[245, 158, 11]}>
+                  <Tag text={mistake} color={[245, 158, 11]}>
                     <span slot="text" let:text class="font-medium capitalize">
                       {text}
                     </span>

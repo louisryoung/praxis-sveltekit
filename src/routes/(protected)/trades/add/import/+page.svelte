@@ -79,7 +79,7 @@
       for="trade-file"
       class="group flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-50 transition-colors duration-200 ease-in-out hover:bg-neutral-100 dark:border-neutral-600 dark:bg-neutral-900/50 dark:hover:border-neutral-500 dark:hover:bg-neutral-900"
     >
-      <div class="flex flex-col items-center justify-center pt-5 pb-6">
+      <div class="flex flex-col items-center justify-center pb-6 pt-5">
         {#if files.length > 0}
           {#each files as file}
             {file.name}
@@ -115,7 +115,7 @@
   {#if files.length > 0 && !parsed}
     <div class="flex w-full max-w-xl items-center justify-end">
       <button
-        class="rounded-md border border-amber-500 bg-amber-100 py-1.5 px-8 text-sm font-bold text-amber-600 transition-colors duration-200 ease-in-out hover:bg-amber-200 dark:border-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:hover:bg-amber-900/50"
+        class="rounded-md border border-amber-500 bg-amber-100 px-8 py-1.5 text-sm font-bold text-amber-600 transition-colors duration-200 ease-in-out hover:bg-amber-200 dark:border-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:hover:bg-amber-900/50"
         on:click={handleParse}
       >
         Read
@@ -124,7 +124,7 @@
   {:else if parsed}
     <div class="mx-auto flex max-w-7xl justify-start px-4 sm:px-6 lg:px-8">
       <button
-        class="rounded-md border border-teal-500 bg-teal-100 py-1.5 px-8 text-sm font-bold text-teal-600 transition-colors duration-200 ease-in-out hover:bg-teal-200 dark:border-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:hover:bg-teal-900/50"
+        class="rounded-md border border-teal-500 bg-teal-100 px-8 py-1.5 text-sm font-bold text-teal-600 transition-colors duration-200 ease-in-out hover:bg-teal-200 dark:border-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:hover:bg-teal-900/50"
         on:click={handleImport}
       >
         <CircleSpinner class="mr-2 inline h-5 w-5" show={loading} />

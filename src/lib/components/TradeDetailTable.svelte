@@ -27,7 +27,7 @@
   <thead>
     <tr>
       <th
-        class="bg-neutral-50 px-6 py-3 text-left text-sm font-semibold text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 "
+        class="bg-neutral-50 px-6 py-3 text-left text-sm font-semibold text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100"
         scope="col"
       >
         side

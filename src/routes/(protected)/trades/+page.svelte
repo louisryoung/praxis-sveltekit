@@ -16,7 +16,7 @@
 </script>
 
 <div class="w-full">
-  <div class="mx-auto w-full max-w-[92rem] py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
+  <div class="mx-auto w-full max-w-[92rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
     <div class="flex items-end justify-between">
       <h1
         class="text-3xl font-bold capitalize tracking-tight text-neutral-900 dark:text-neutral-100"

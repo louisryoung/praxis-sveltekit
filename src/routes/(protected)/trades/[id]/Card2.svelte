@@ -232,7 +232,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="inline-flex items-center border border-neutral-200 py-0.5 px-2 capitalize transition-colors  duration-200 ease-in-out hover:bg-teal-600 hover:text-white dark:border-neutral-800"
+                  class="inline-flex items-center border border-neutral-200 px-2 py-0.5 capitalize transition-colors duration-200 ease-in-out hover:bg-teal-600 hover:text-white dark:border-neutral-800"
                 >
                   <CircleSpinner
                     class="mr-1.5 inline h-3.5 w-3.5"
@@ -242,7 +242,7 @@
                 </button>
                 <button
                   type="button"
-                  class="rounded-r-md border border-neutral-200 py-1 px-2 transition-colors duration-200 ease-in-out hover:bg-red-600 hover:text-white dark:border-neutral-800"
+                  class="rounded-r-md border border-neutral-200 px-2 py-1 transition-colors duration-200 ease-in-out hover:bg-red-600 hover:text-white dark:border-neutral-800"
                   on:click={() => (editProfitTarget = false)}
                 >
                   <svg
@@ -336,7 +336,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="inline-flex items-center border border-neutral-200 py-0.5 px-2 capitalize transition-colors duration-200 ease-in-out hover:bg-teal-600 hover:text-white dark:border-neutral-800"
+                  class="inline-flex items-center border border-neutral-200 px-2 py-0.5 capitalize transition-colors duration-200 ease-in-out hover:bg-teal-600 hover:text-white dark:border-neutral-800"
                 >
                   <CircleSpinner
                     class="mr-1.5 inline h-3.5 w-3.5"
@@ -346,7 +346,7 @@
                 </button>
                 <button
                   type="button"
-                  class="rounded-r-md border border-neutral-200 py-1 px-2 transition-colors duration-200 ease-in-out hover:bg-red-600 hover:text-white dark:border-neutral-800"
+                  class="rounded-r-md border border-neutral-200 px-2 py-1 transition-colors duration-200 ease-in-out hover:bg-red-600 hover:text-white dark:border-neutral-800"
                   on:click={() => (editStopLoss = false)}
                 >
                   <svg

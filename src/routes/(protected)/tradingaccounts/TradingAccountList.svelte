@@ -97,7 +97,7 @@
             class="divide-y divide-neutral-200 bg-white dark:divide-neutral-800 dark:bg-black"
           >
             {#each tradingAccounts as tradingAccount}
-              <tr class="group peer bg-white dark:bg-black text-white">
+              <tr class="group peer bg-white text-white dark:bg-black">
                 <td
                   class="relative h-12 w-16 px-8 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800/50 [.selected_&]:bg-neutral-50 dark:[.selected_&]:bg-neutral-900"
                   role="gridcell"

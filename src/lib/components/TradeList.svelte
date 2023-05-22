@@ -11,7 +11,7 @@
 </script>
 
 <ol
-  class="flex h-full h-[25rem] flex-col items-stretch overflow-hidden text-sm leading-6 text-gray-500"
+  class="flex h-[25rem] h-full flex-col items-stretch overflow-hidden text-sm leading-6 text-gray-500"
 >
   <VirtualList height="100%" {items} bind:start bind:end let:item>
     <li

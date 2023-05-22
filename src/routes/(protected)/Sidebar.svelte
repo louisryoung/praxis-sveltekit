@@ -93,7 +93,7 @@
   class="relative hidden flex-col items-center justify-start border-r border-r-neutral-200 bg-transparent dark:border-neutral-800 md:flex"
 >
   <div
-    class="absolute top-16 right-0 z-[11] translate-x-1/2 -translate-y-1/2 scale-125 rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black dark:text-white"
+    class="absolute right-0 top-16 z-[11] -translate-y-1/2 translate-x-1/2 scale-125 rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black dark:text-white"
   >
     <button type="button" class="p-1.5" on:click={handleToggle}>
       <svg

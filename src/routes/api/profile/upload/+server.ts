@@ -12,17 +12,18 @@ export const POST: RequestHandler = async ({ request, locals }) => {
   const { photo } = await request.json();
 
   try {
-
-    await UserSchema.updateOne({
-      id: locals?.user?.id
-    }, {
-      $set: {
-        photo
+    await UserSchema.updateOne(
+      {
+        id: locals?.user?.id,
+      },
+      {
+        $set: {
+          photo,
+        },
       }
-    })
+    );
     return json({ success: true });
-
-  } catch(e) {
-      return json({ success: false, error: e }, { status: 400 });
+  } catch (e) {
+    return json({ success: false, error: e }, { status: 400 });
   }
 };

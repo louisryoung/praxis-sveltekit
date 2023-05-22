@@ -140,7 +140,7 @@
 
 <div class="lg:flex lg:h-full lg:flex-col">
   <header
-    class="flex items-center justify-between border-b border-neutral-200 py-4 px-6 dark:border-neutral-800 lg:flex-none"
+    class="flex items-center justify-between border-b border-neutral-200 px-6 py-4 dark:border-neutral-800 lg:flex-none"
   >
     <h1 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
       <time
@@ -175,7 +175,7 @@
         </button>
         <button
           type="button"
-          class="dark:hovertext-neutral-100 hidden border-t border-b border-neutral-300 bg-white px-3.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900 focus:relative dark:border-neutral-700 dark:bg-black dark:text-neutral-300 dark:hover:bg-neutral-900/70 md:block"
+          class="dark:hovertext-neutral-100 hidden border-b border-t border-neutral-300 bg-white px-3.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900 focus:relative dark:border-neutral-700 dark:bg-black dark:text-neutral-300 dark:hover:bg-neutral-900/70 md:block"
           >Today</button
         >
         <span
@@ -398,9 +398,9 @@
           {@const netPL = tradeData?.[dateStr]?.netPL}
 
           <div
-            class="relative min-h-[5.25rem] py-2 px-3 text-right text-neutral-600 dark:text-neutral-400 cursor-pointer {cm} {s}"
+            class="relative min-h-[5.25rem] cursor-pointer px-3 py-2 text-right text-neutral-600 dark:text-neutral-400 {cm} {s}"
             on:dblclick={() => {
-              isSelected = !isSelected
+              isSelected = !isSelected;
             }}
           >
             {#if (tradeData?.[dateStr]?.trades?.length ?? 0) > 0}
@@ -464,7 +464,7 @@
 
           <button
             type="button"
-            class="flex h-14 flex-col  py-2 px-3 focus:z-10 {cm} transition-colors duration-200 ease-in-out"
+            class="flex h-14 flex-col px-3 py-2 focus:z-10 {cm} transition-colors duration-200 ease-in-out"
           >
             <time
               datetime={dateStr}

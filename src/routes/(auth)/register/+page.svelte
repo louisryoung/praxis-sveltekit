@@ -15,7 +15,7 @@
 </script>
 
 <div
-  class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+  class="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8"
 >
   <div class="w-full max-w-md space-y-8">
     <div>
@@ -180,7 +180,7 @@
       <div>
         <button
           type="submit"
-          class="group relative flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+          class="group relative flex w-full justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
         >
           <span class="absolute inset-y-0 left-0 flex items-center pl-3">
             <svg

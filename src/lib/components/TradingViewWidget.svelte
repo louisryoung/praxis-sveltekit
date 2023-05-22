@@ -9,7 +9,8 @@
   export let allow_symbol_change = true;
   export let show_popup_button = true;
 
-  let id = 'svelte-tradingview-widget-' + Math.random().toString(36).substr(2, 9);
+  let id =
+    'svelte-tradingview-widget-' + Math.random().toString(36).substr(2, 9);
 
   function createWidget(options: Record<string, any>) {
     if ('TradingView' in window) {
@@ -19,7 +20,9 @@
 
   function initializeScript() {
     return new Promise<void>((resolve) => {
-      let script = document.getElementById('tradingview-widget-loading-script') as HTMLScriptElement | null;
+      let script = document.getElementById(
+        'tradingview-widget-loading-script'
+      ) as HTMLScriptElement | null;
       if (script !== null) {
         // script.onload = resolve;
         resolve();

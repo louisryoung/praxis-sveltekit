@@ -30,11 +30,11 @@ body > div {
   @apply first:min-h-screen;
 }
 
-.date-range-picker > input[type="range"] {
+.date-range-picker > input[type='range'] {
   @apply hidden;
 }
 
-.date-range-picker > input[type="date"] {
+.date-range-picker > input[type='date'] {
   @apply mb-0;
 }
 

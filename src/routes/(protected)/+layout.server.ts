@@ -14,18 +14,18 @@ export const load: LayoutServerLoad = async ({ locals, url }) => {
   });
 
   const tradingAccounts = await TradingAccountSchema.find({
-    userID: locals.user?.id
-  })
+    userID: locals.user?.id,
+  });
 
   return {
     user: {
       email: locals.user.email,
       fullName: locals.user.fullName,
-      photo: user?.photo
+      photo: user?.photo,
     },
-    tradingAccounts: tradingAccounts?.map((account)=> ({
+    tradingAccounts: tradingAccounts?.map((account) => ({
       id: account.id,
-      name: account.name
-    }))
+      name: account.name,
+    })),
   };
 };

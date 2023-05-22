@@ -42,10 +42,16 @@
     forms.setups.data = setups.map((item) => ({ label: item, value: item }));
   };
   const setInputMistakes = (mistakes: string[]) => {
-    forms.mistakes.data = mistakes.map((item) => ({ label: item, value: item }));
+    forms.mistakes.data = mistakes.map((item) => ({
+      label: item,
+      value: item,
+    }));
   };
   const setInputFeelings = (feelings: string[]) => {
-    forms.feelings.data = feelings.map((item) => ({ label: item, value: item }));
+    forms.feelings.data = feelings.map((item) => ({
+      label: item,
+      value: item,
+    }));
   };
 
   $: setInputSetups(inputs.setups);
@@ -117,14 +123,20 @@
         };
       }}
     >
-    <div class="flex w-full flex-col items-start justify-start">
-      <label
+      <div class="flex w-full flex-col items-start justify-start">
+        <label
           for="form-{trade.id}-rating-field"
           class="mb-2 block w-full text-sm font-semibold text-black/70 dark:text-white/70"
         >
           Rating
         </label>
-        <input id="form-{trade.id}-rating-field" name="rating" type="number" bind:value={forms.rating.data} class="w-full border border-neutral-300 dark:border-neutral-700 rounded-md px-4 py-2 text-sm font-medium text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-blue-500 focus:ring-blue-500" />
+        <input
+          id="form-{trade.id}-rating-field"
+          name="rating"
+          type="number"
+          bind:value={forms.rating.data}
+          class="w-full rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-neutral-700 dark:text-neutral-100"
+        />
       </div>
     </form>
   </div>
@@ -147,18 +159,24 @@
         };
       }}
     >
-    <div class="flex w-full flex-col items-start justify-start">
-      <label
+      <div class="flex w-full flex-col items-start justify-start">
+        <label
           for="form-{trade.id}-feelings-field"
           class="mb-2 block w-full text-sm font-semibold text-black/70 dark:text-white/70"
         >
           Feelings
         </label>
-        <input id="form-{trade.id}-feelings-field" name="feelings" type="number" bind:value={forms.rating.data} class="w-full border border-neutral-300 dark:border-neutral-700 rounded-md px-4 py-2 text-sm font-medium text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-blue-500 focus:ring-blue-500" />
+        <input
+          id="form-{trade.id}-feelings-field"
+          name="feelings"
+          type="number"
+          bind:value={forms.rating.data}
+          class="w-full rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-neutral-700 dark:text-neutral-100"
+        />
       </div>
     </form>
   </div>
-  <div class="col-start-1 col-span-full lg:col-start-1 lg:col-span-2">
+  <div class="col-span-full col-start-1 lg:col-span-2 lg:col-start-1">
     <form
       id="form-{trade.id}-setups"
       method="POST"
@@ -223,7 +241,7 @@
             color={959987}
             removeable
             on:remove={async (e) => {
-              const {text} = e.detail;
+              const { text } = e.detail;
               forms.setups.data = forms.setups.data.filter(
                 (item) => item.value !== text
               );
@@ -246,7 +264,7 @@
   </div>
   <div class="col-span-full lg:col-span-2">
     <form
-    id="form-{trade.id}-mistakes"
+      id="form-{trade.id}-mistakes"
       method="POST"
       action="?/mistakes"
       class="relative flex w-full items-center justify-start text-neutral-900 dark:text-neutral-100"
@@ -268,10 +286,10 @@
           for="form-{trade.id}-mistakes-field"
           class="mb-2 block w-full text-sm font-semibold text-black/70 dark:text-white/70"
         >
-            Mistakes
+          Mistakes
         </label>
         <Select
-            class="bg-transparent"
+          class="bg-transparent"
           inputAttributes={{
             id: `form-${trade.id}-mistakes-field`,
           }}
@@ -308,7 +326,7 @@
             color={[245, 158, 11]}
             removeable
             on:remove={async (e) => {
-              const {text} = e.detail;
+              const { text } = e.detail;
               forms.mistakes.data = forms.mistakes.data.filter(
                 (item) => item.value !== text
               );
@@ -332,71 +350,71 @@
 </div>
 
 <style lang="postcss">
-    :global(.multi-item) {
-        @apply !hidden;
-    }
-    :global(.svelte-select) {
-      --background: transparent;
-      --border: 1px solid rgb(212 212 212);
-      --border-focused: 1px solid rgb(163 163 163);
-      --border-radius: 0.5rem;
-      --selected-item-color: black;
-      --selected-item-padding: 0;
-      --item-padding: 0.5rem 1rem;
-      /* --item-background: rgb(16 185 129); */
-      --item-is-active-bg: white;
-      --item-is-active-color: rgb(16 185 129);
-      --item-hover-bg: rgb(13 148 136);
-      --item-hover-color: white;
-      --chevron-color: rgb(163 163 163);
-      --height: 100%;
-      --chevron-height: 0.5rem;
-      --width: 100%;
-      --font-size: 0.875rem;
-      --list-background: white;
-      --list-border-radius: 0.5rem;
-    }
+  :global(.multi-item) {
+    @apply !hidden;
+  }
+  :global(.svelte-select) {
+    --background: transparent;
+    --border: 1px solid rgb(212 212 212);
+    --border-focused: 1px solid rgb(163 163 163);
+    --border-radius: 0.5rem;
+    --selected-item-color: black;
+    --selected-item-padding: 0;
+    --item-padding: 0.5rem 1rem;
+    /* --item-background: rgb(16 185 129); */
+    --item-is-active-bg: white;
+    --item-is-active-color: rgb(16 185 129);
+    --item-hover-bg: rgb(13 148 136);
+    --item-hover-color: white;
+    --chevron-color: rgb(163 163 163);
+    --height: 100%;
+    --chevron-height: 0.5rem;
+    --width: 100%;
+    --font-size: 0.875rem;
+    --list-background: white;
+    --list-border-radius: 0.5rem;
+  }
 
-    :global(.svelte-select) input {
-        box-shadow: none !important;
-    }
-  
-    .dark :global(.svelte-select) {
-      --background: rgb(15 15 15);
-      --border: 1px solid rgb(64 64 64);
-      --border-focused: 1px solid rgb(128 128 128);
-      --selected-item-color: rgb(255 255 255);
-      --item-color: rgb(255 255 255);
-      --item-is-active-bg: rgb(64 64 64);
-      --item-is-active-color: rgb(16 185 129);
-      --list-background: rgb(36 36 36);
-    }
+  :global(.svelte-select) input {
+    box-shadow: none !important;
+  }
 
-    /* :global(.svelte-select-list) {
+  .dark :global(.svelte-select) {
+    --background: rgb(15 15 15);
+    --border: 1px solid rgb(64 64 64);
+    --border-focused: 1px solid rgb(128 128 128);
+    --selected-item-color: rgb(255 255 255);
+    --item-color: rgb(255 255 255);
+    --item-is-active-bg: rgb(64 64 64);
+    --item-is-active-color: rgb(16 185 129);
+    --list-background: rgb(36 36 36);
+  }
+
+  /* :global(.svelte-select-list) {
       @apply scrollbar [&::-webkit-scrollbar]:w-1.5;
     } */
-    :global(.svelte-select-list)::-webkit-scrollbar {
-      @apply my-0 h-[0.4rem] w-2;
-    }
-    :global(.svelte-select-list)::-webkit-scrollbar-thumb,
-    :global(.svelte-select-list)::-webkit-scrollbar-track {
-      @apply rounded-full;
-    }
+  :global(.svelte-select-list)::-webkit-scrollbar {
+    @apply my-0 h-[0.4rem] w-2;
+  }
+  :global(.svelte-select-list)::-webkit-scrollbar-thumb,
+  :global(.svelte-select-list)::-webkit-scrollbar-track {
+    @apply rounded-full;
+  }
 
-    :global(.svelte-select-list)::-webkit-scrollbar-thumb {
-      @apply bg-[rgb(209,209,211)];
-    }
+  :global(.svelte-select-list)::-webkit-scrollbar-thumb {
+    @apply bg-[rgb(209,209,211)];
+  }
 
-    .auto-hide-scroll-thumb::-webkit-scrollbar-thumb,
-    :global(.svelte-select-list)::-webkit-scrollbar-track {
-      @apply rounded-full bg-transparent;
-    }
+  .auto-hide-scroll-thumb::-webkit-scrollbar-thumb,
+  :global(.svelte-select-list)::-webkit-scrollbar-track {
+    @apply rounded-full bg-transparent;
+  }
 
-    :global(.svelte-select-list):hover::-webkit-scrollbar-thumb {
-      @apply bg-[rgb(209,209,211)] hover:shadow-[inset_0_0_100px_100px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_0_100px_100px_rgba(0,0,0,0.3)];
-    }
+  :global(.svelte-select-list):hover::-webkit-scrollbar-thumb {
+    @apply bg-[rgb(209,209,211)] hover:shadow-[inset_0_0_100px_100px_rgba(0,0,0,0.2)] dark:hover:shadow-[inset_0_0_100px_100px_rgba(0,0,0,0.3)];
+  }
 
-    :global(.svelte-select-list):hover::-webkit-scrollbar-track {
-      @apply hover:bg-[rgb(242,243,244)] dark:hover:bg-[rgb(38,38,38)];
-    }
-  </style>
+  :global(.svelte-select-list):hover::-webkit-scrollbar-track {
+    @apply hover:bg-[rgb(242,243,244)] dark:hover:bg-[rgb(38,38,38)];
+  }
+</style>

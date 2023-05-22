@@ -1,1 +1,1 @@
-declare module 'svelte-date-range-select'
+declare module 'svelte-date-range-select';

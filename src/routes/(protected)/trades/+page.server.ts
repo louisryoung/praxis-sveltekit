@@ -36,7 +36,7 @@ export const load = (async ({ url, locals }) => {
           foreignField: 'tradeID',
           as: 'inputs',
         },
-      }
+      },
     ]);
     return data.map(parseMongoDBObject).map((trade) => ({
       ...trade,

@@ -27,7 +27,7 @@
 <div
   class="flex flex-col overflow-hidden rounded-lg bg-white shadow dark:bg-neutral-900/50 dark:shadow-neutral-800 {classProp}"
 >
-  <div class="px-6 pt-5 pb-1">
+  <div class="px-6 pb-1 pt-5">
     <div class="flex items-center">
       <div class="w-0 flex-1">
         <dl>

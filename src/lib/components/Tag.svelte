@@ -41,7 +41,7 @@
 </script>
 
 <span
-  class="inline-flex items-center rounded-full py-0.5 px-2.5 text-[0.65rem] font-medium {classProp}"
+  class="inline-flex items-center rounded-full px-2.5 py-0.5 text-[0.65rem] font-medium {classProp}"
   class:pr-1={removeable}
   style:color="rgb({RGB})"
   style:background-color="rgb({RGB} / {$darkMode ? 0.2 : 0.1})"

@@ -44,9 +44,9 @@
 </script>
 
 <div
-  class="flex h-full flex-col gap-0 overflow-hidden rounded-lg bg-neutral-50/50 shadow  dark:border-transparent dark:bg-neutral-900/50 dark:shadow-neutral-800 {classProp}"
+  class="flex h-full flex-col gap-0 overflow-hidden rounded-lg bg-neutral-50/50 shadow dark:border-transparent dark:bg-neutral-900/50 dark:shadow-neutral-800 {classProp}"
 >
-  <div class="px-6 pt-5 pb-2">
+  <div class="px-6 pb-2 pt-5">
     <div class="flex items-center">
       <div class="w-0 flex-1">
         <ul

@@ -49,18 +49,21 @@ export const authenticate = async (credentials: {
 };
 
 export const updateProfile = async (data: Partial<User>) => {
-  const { id, ...payload } = data
+  const { id, ...payload } = data;
 
-  await UserSchema.updateOne({id},  {
-    $set: payload,
-  })
+  await UserSchema.updateOne(
+    { id },
+    {
+      $set: payload,
+    }
+  );
 
   const user = await UserSchema.findOne({
     id: id,
   });
 
   if (!user) {
-    throw "Faild to update profile";
+    throw 'Faild to update profile';
   }
 
   return user;

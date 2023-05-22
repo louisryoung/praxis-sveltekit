@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {onMount} from 'svelte'
+  import { onMount } from 'svelte';
   import { flip } from 'svelte/animate';
   import { dndzone } from 'svelte-dnd-action';
   import { formatCurrency, formatNumber } from '$lib/utils/format';
@@ -18,7 +18,7 @@
   let showModal = false;
 
   let selectedWidgets = [];
-  let selectedWidgetIds= [];
+  let selectedWidgetIds = [];
   let remainedCardIds = [];
   let remainedCards = [];
   let matchedItem = null;
@@ -125,58 +125,61 @@
   };
 
   const selectWidgetsById = (id) => {
-    matchedItem = remainedCards.find(item => item.id === id)
+    matchedItem = remainedCards.find((item) => item.id === id);
     if (matchedItem) {
-      selectedWidgets = [...selectedWidgets, matchedItem]
-      remainedCards = remainedCards.filter(item => item.id !== id)
+      selectedWidgets = [...selectedWidgets, matchedItem];
+      remainedCards = remainedCards.filter((item) => item.id !== id);
     }
-    setDataInLocalStorage()
-  }
+    setDataInLocalStorage();
+  };
 
   const removeWidgetById = (id) => {
-    const index = selectedWidgets.findIndex(item => item.id === id);
+    const index = selectedWidgets.findIndex((item) => item.id === id);
     if (index !== -1) {
       let removedItem = selectedWidgets.splice(index, 1);
-      selectedWidgets = [...selectedWidgets]
-      remainedCards = [...remainedCards, removedItem[0]]
+      selectedWidgets = [...selectedWidgets];
+      remainedCards = [...remainedCards, removedItem[0]];
     }
-    setDataInLocalStorage()
-  }
+    setDataInLocalStorage();
+  };
 
   const setDataInLocalStorage = () => {
-    selectedWidgetIds = selectedWidgets.map((item)=> item.id)
-    remainedCardIds = remainedCards.map((item)=> item.id)
+    selectedWidgetIds = selectedWidgets.map((item) => item.id);
+    remainedCardIds = remainedCards.map((item) => item.id);
 
-    localStorage.setItem("selectedWidgetIds", JSON.stringify(selectedWidgetIds))
-    localStorage.setItem("remainedCardIds",JSON.stringify(remainedCardIds))
-  }
+    localStorage.setItem(
+      'selectedWidgetIds',
+      JSON.stringify(selectedWidgetIds)
+    );
+    localStorage.setItem('remainedCardIds', JSON.stringify(remainedCardIds));
+  };
 
-onMount(()=> {
-  let widgetIdsInStorage = localStorage.getItem('selectedWidgetIds')
-  if (widgetIdsInStorage) {
-    selectedWidgetIds = [...JSON.parse(widgetIdsInStorage)]
-    selectedWidgetIds.map((item)=>{
-      matchedItem = cards.find(obj=> obj.id === item)
-      return selectedWidgets = [...selectedWidgets, matchedItem]
-    })
-  }
+  onMount(() => {
+    let widgetIdsInStorage = localStorage.getItem('selectedWidgetIds');
+    if (widgetIdsInStorage) {
+      selectedWidgetIds = [...JSON.parse(widgetIdsInStorage)];
+      selectedWidgetIds.map((item) => {
+        matchedItem = cards.find((obj) => obj.id === item);
+        return (selectedWidgets = [...selectedWidgets, matchedItem]);
+      });
+    }
 
-  let cardIdsInStorage = localStorage.getItem('remainedCardIds')
-  if (cardIdsInStorage) {
-    remainedCardIds = [...JSON.parse(cardIdsInStorage)]
-    remainedCardIds.map((item)=>{
-      matchedItem = cards.find(obj => obj.id === item)
-      return remainedCards = [...remainedCards, matchedItem]
-    })
-  } else {
-    remainedCards = [...cards]
-  }
-})
+    let cardIdsInStorage = localStorage.getItem('remainedCardIds');
+    if (cardIdsInStorage) {
+      remainedCardIds = [...JSON.parse(cardIdsInStorage)];
+      remainedCardIds.map((item) => {
+        matchedItem = cards.find((obj) => obj.id === item);
+        return (remainedCards = [...remainedCards, matchedItem]);
+      });
+    } else {
+      remainedCards = [...cards];
+    }
+  });
 </script>
 
 <div class="dashboard relative w-full">
   <div
-    class="stats scrollbar auto-hide-scroll-thumb sticky top-0 mt-5 hidden h-[calc(100vh-var(--app-header-height))] w-64 xl:w-80 md:block"
+    class="stats scrollbar auto-hide-scroll-thumb sticky top-0 mt-5 hidden h-[calc(100vh-var(--app-header-height))] w-64 md:block xl:w-80"
   >
     <div class="sticky top-0 z-[1] w-full">
       <div class="w-full bg-white px-4 pt-4 dark:bg-black">
@@ -218,7 +221,6 @@ onMount(()=> {
           </svg>
           Edit Widget
         </button>
-        
       </div>
     </div>
     <section
@@ -284,30 +286,36 @@ onMount(()=> {
   </div>
 </div>
 <Modal
-title="Select Widgets"
-open={showModal}
-on:close={showWidgetEditionModal}
+  title="Select Widgets"
+  open={showModal}
+  on:close={showWidgetEditionModal}
 >
-<svelte:fragment slot="body">
-  <div class="grid grid-cols-2 gap-1 text-gray-300">
-    <div class="col-span-1 border-2 border-solid border-green-900">
+  <svelte:fragment slot="body">
+    <div class="grid grid-cols-2 gap-1 text-gray-300">
+      <div class="col-span-1 border-2 border-solid border-green-900">
         {#each remainedCards as card (card.id)}
-          <div class="flex justify-between p-[10px] cursor-pointer border-slate-900 border-2 border-solid mt-2 hover:bg-green-500" on:click={selectWidgetsById(card.id)}>
+          <div
+            class="mt-2 flex cursor-pointer justify-between border-2 border-solid border-slate-900 p-[10px] hover:bg-green-500"
+            on:click={selectWidgetsById(card.id)}
+          >
             <span>{card.props.title}</span>
             <span>+</span>
           </div>
         {/each}
+      </div>
+      <div class="col-span-1">
+        {#each selectedWidgets as widget (widget.id)}
+          <div
+            class="mt-2 flex cursor-pointer justify-between border-2 border-solid border-slate-900 p-[10px] hover:bg-green-400"
+            on:click={removeWidgetById(widget.id)}
+          >
+            <span>{widget.props.title}</span>
+            <span>-</span>
+          </div>
+        {/each}
+      </div>
     </div>
-    <div class="col-span-1">
-      {#each selectedWidgets as widget (widget.id)}
-        <div class="flex justify-between p-[10px] cursor-pointer border-slate-900 border-2 border-solid mt-2 hover:bg-green-400" on:click={removeWidgetById(widget.id)}>
-          <span>{widget.props.title}</span>
-          <span>-</span>
-        </div>
-      {/each}
-    </div>
-  </div>
-</svelte:fragment>
+  </svelte:fragment>
 </Modal>
 
 <style lang="postcss">
