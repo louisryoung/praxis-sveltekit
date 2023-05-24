@@ -1,4 +1,4 @@
-<div class="mx-auto w-full max-w-4xl py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
+<div class="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
   <h1
     class="text-3xl font-bold capitalize tracking-tight text-neutral-900 dark:text-neutral-100"
   >
@@ -67,12 +67,12 @@
     <div class="flex justify-end pt-8">
       <button
         type="button"
-        class="rounded-md border border-neutral-300 bg-white py-2 px-6 text-sm font-medium text-neutral-900 shadow-sm transition-colors duration-200 ease-in-out hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-black dark:border-neutral-700 dark:bg-black dark:text-neutral-100 dark:hover:bg-neutral-900"
+        class="rounded-md border border-neutral-300 bg-white px-6 py-2 text-sm font-medium text-neutral-900 shadow-sm transition-colors duration-200 ease-in-out hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-black dark:border-neutral-700 dark:bg-black dark:text-neutral-100 dark:hover:bg-neutral-900"
         >Cancel</button
       >
       <button
         type="submit"
-        class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-2 px-6 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-in-out hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-black dark:bg-teal-500 dark:text-black dark:hover:bg-teal-600 dark:hover:text-neutral-800"
+        class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-teal-600 px-6 py-2 text-sm font-medium text-white shadow-sm transition-colors duration-200 ease-in-out hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-black dark:bg-teal-500 dark:text-black dark:hover:bg-teal-600 dark:hover:text-neutral-800"
         >Save</button
       >
     </div>

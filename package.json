@@ -60,5 +60,10 @@
     "vite": "^4.2.0",
     "zod": "^3.21.4"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "flowbite-svelte": "^0.36.4",
+    "svelte-date-range-select": "^1.0.4",
+    "svelte-multiselect-new": "^4.0.7"
+  }
 }

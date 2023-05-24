@@ -30,6 +30,28 @@ body > div {
   @apply first:min-h-screen;
 }
 
+.date-range-picker > input[type='range'] {
+  @apply hidden;
+}
+
+.date-range-picker > input[type='date'] {
+  @apply mb-0;
+}
+
+.date-range-picker > span {
+  @apply hidden;
+}
+
+.date-range-picker button {
+  align-content: center;
+  width: 74px !important;
+  height: 30px !important;
+  border-radius: 11px;
+  background-color: transparent !important;
+  border: 1px solid;
+  margin-left: 3px;
+}
+
 @layer components {
   .scrollbar {
     scrollbar-width: thin;

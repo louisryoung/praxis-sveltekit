@@ -63,7 +63,7 @@
 
 <div class="table-container">
   <div
-    class="absolute top-0 left-12 z-[3] flex h-12 items-center space-x-3 sm:left-16"
+    class="absolute left-12 top-0 z-[3] flex h-12 items-center space-x-3 sm:left-16"
     class:hidden={!someSelected && !allRowsSelected}
   >
     <button

@@ -49,9 +49,9 @@ const stopLossSchema = z.object({
 });
 
 const setupsSchema = z.object({
-  setups: z
-    .preprocess((value) => JSON.parse(value), z
-    .array(
+  setups: z.preprocess(
+    (value) => JSON.parse(value),
+    z.array(
       z.object({
         label: z.string().refine((value) => value.length > 0, {
           message: 'Setup name is required',
@@ -64,9 +64,9 @@ const setupsSchema = z.object({
   ),
 });
 const mistakesSchema = z.object({
-  mistakes: z
-    .preprocess((value) => JSON.parse(value), z
-    .array(
+  mistakes: z.preprocess(
+    (value) => JSON.parse(value),
+    z.array(
       z.object({
         label: z.string().refine((value) => value.length > 0, {
           message: 'Mistake name is required',
@@ -78,7 +78,6 @@ const mistakesSchema = z.object({
     )
   ),
 });
-
 
 export const actions: Actions = {
   profit_target: async ({ request, params, locals }) => {
@@ -153,7 +152,7 @@ export const actions: Actions = {
     if (!result.success) {
       return fail(400, { errors: parseZodErrors(result) });
     }
-    
+
     const mistakes = result.data.mistakes.map((e) => e.value);
     const { id } = params;
     const userID = locals?.user?.id ?? '';

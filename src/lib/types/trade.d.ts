@@ -2,6 +2,7 @@ export interface TradeAcct {
   id: string;
   name: string;
   userID: string;
+  broker: string;
   createdAt: Date;
 }
 export interface TradeAcctResponse extends SuccessFail {

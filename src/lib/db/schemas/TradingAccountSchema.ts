@@ -13,6 +13,7 @@ export default mongoose.models.TradingAccount ||
       createdAt: { type: Date, default: Date.now },
       id: { type: String, required: true },
       name: { type: String, required: true },
+      broker: { type: String, required: true, default: '' },
       userID: { type: String, required: true },
     })
   );

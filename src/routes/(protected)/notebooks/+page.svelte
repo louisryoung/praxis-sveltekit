@@ -23,7 +23,7 @@
 </script>
 
 <div class="h-full w-full">
-  <div class="mx-auto w-full max-w-[92rem] py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
+  <div class="mx-auto w-full max-w-[92rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
     <h1
       class="text-3xl font-bold capitalize tracking-tight text-slate-900 dark:text-neutral-100"
     >
@@ -87,20 +87,24 @@
                   <div class="text-sm">
                     <span class="font-medium text-black dark:text-white">
                       {notebook.trades.length}
-                      </span>
-                      total
+                    </span>
+                    total
                   </div>
                   <div
                     class="mx-2 h-1 w-1 rounded-full bg-neutral-500 dark:bg-neutral-500"
                   />
                   <div class="text-sm">
-                    <span class="font-medium text-green-500">{notebook.wins}</span> w
+                    <span class="font-medium text-green-500"
+                      >{notebook.wins}</span
+                    > w
                   </div>
                   <div
                     class="mx-2 h-1 w-1 rounded-full bg-neutral-500 dark:bg-neutral-500"
                   />
                   <div class="text-sm">
-                    <span class="font-medium text-red-500">{notebook.losses}</span> l
+                    <span class="font-medium text-red-500"
+                      >{notebook.losses}</span
+                    > l
                   </div>
                   <div
                     class="mx-2 h-1 w-1 rounded-full bg-neutral-500 dark:bg-neutral-500"

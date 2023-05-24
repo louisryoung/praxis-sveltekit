@@ -42,7 +42,7 @@
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
-    class="absolute right-6 top-6 h-6 w-6 -translate-x-1 scale-90 transition-transform duration-200 ease-in-out group-hover/card:translate-x-0 group-hover/card:scale-100 group-hover/card:text-black/80 dark:group-hover/card:text-white/80 text-black/50 dark:text-white/50"
+    class="absolute right-6 top-6 h-6 w-6 -translate-x-1 scale-90 text-black/50 transition-transform duration-200 ease-in-out group-hover/card:translate-x-0 group-hover/card:scale-100 group-hover/card:text-black/80 dark:text-white/50 dark:group-hover/card:text-white/80"
   >
     <path
       stroke-linecap="round"

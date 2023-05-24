@@ -140,7 +140,7 @@
 
 <div class="lg:flex lg:h-full lg:flex-col">
   <header
-    class="flex items-center justify-between border-b border-neutral-200 py-4 px-6 dark:border-neutral-800 lg:flex-none"
+    class="flex items-center justify-between border-b border-neutral-200 px-6 py-4 dark:border-neutral-800 lg:flex-none"
   >
     <h1 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
       <time
@@ -175,7 +175,7 @@
         </button>
         <button
           type="button"
-          class="dark:hovertext-neutral-100 hidden border-t border-b border-neutral-300 bg-white px-3.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900 focus:relative dark:border-neutral-700 dark:bg-black dark:text-neutral-300 dark:hover:bg-neutral-900/70 md:block"
+          class="dark:hovertext-neutral-100 hidden border-b border-t border-neutral-300 bg-white px-3.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900 focus:relative dark:border-neutral-700 dark:bg-black dark:text-neutral-300 dark:hover:bg-neutral-900/70 md:block"
           >Today</button
         >
         <span
@@ -244,20 +244,6 @@
                 <!-- Active: "bg-neutral-100 text-neutral-900", Not Active: "text-neutral-700 dark:text-neutral-300" -->
                 <a
                   href="#"
-                  class="pointer-events-none block px-4 py-2 text-sm text-neutral-700 opacity-50 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0">Day view</a
-                >
-                <a
-                  href="#"
-                  class="pointer-events-none block px-4 py-2 text-sm text-neutral-700 opacity-50 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-1">Week view</a
-                >
-                <a
-                  href="#"
                   class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
                   role="menuitem"
                   tabindex="-1"
@@ -265,13 +251,6 @@
                 >
                   Month view
                 </a>
-                <a
-                  href="#"
-                  class="pointer-events-none block px-4 py-2 text-sm text-neutral-700 opacity-50 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-3">Year view</a
-                >
               </div>
             </div>
           {/if}
@@ -369,6 +348,10 @@
       class="grid grid-cols-7 gap-px border-b border-neutral-300 bg-neutral-200 text-center text-xs font-semibold leading-6 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 lg:flex-none"
     >
       <div class="flex justify-center bg-white py-2 dark:bg-black">
+        <span>S</span>
+        <span class="sr-only sm:not-sr-only">un</span>
+      </div>
+      <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>M</span>
         <span class="sr-only sm:not-sr-only">on</span>
       </div>
@@ -382,7 +365,7 @@
       </div>
       <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>T</span>
-        <span class="sr-only sm:not-sr-only">hu</span>
+        <span class="sr-only sm:not-sr-only">hr</span>
       </div>
       <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>F</span>
@@ -391,10 +374,6 @@
       <div class="flex justify-center bg-white py-2 dark:bg-black">
         <span>S</span>
         <span class="sr-only sm:not-sr-only">at</span>
-      </div>
-      <div class="flex justify-center bg-white py-2 dark:bg-black">
-        <span>S</span>
-        <span class="sr-only sm:not-sr-only">un</span>
       </div>
     </div>
     <div
@@ -411,7 +390,7 @@
             ? 'bg-white dark:bg-black'
             : 'bg-neutral-50 dark:bg-black/60 text-neutral-500'}
           {@const s = isSelected
-            ? 'font-semibold bg-primary-500/[0.01] !text-black hover:text-black'
+            ? 'font-semibold !bg-sky-500 !text-black !hover:text-black'
             : ''}
           {@const t = isToday
             ? 'p-1 h-6 w-6 rounded-full bg-black dark:bg-white dark:text-black font-semibold text-white'
@@ -419,7 +398,10 @@
           {@const netPL = tradeData?.[dateStr]?.netPL}
 
           <div
-            class="relative min-h-[5.25rem] py-2 px-3 text-right text-neutral-600 dark:text-neutral-400 {cm}"
+            class="relative min-h-[5.25rem] cursor-pointer px-3 py-2 text-right text-neutral-600 dark:text-neutral-400 {cm} {s}"
+            on:dblclick={() => {
+              isSelected = !isSelected;
+            }}
           >
             {#if (tradeData?.[dateStr]?.trades?.length ?? 0) > 0}
               <a
@@ -482,7 +464,7 @@
 
           <button
             type="button"
-            class="flex h-14 flex-col  py-2 px-3 focus:z-10 {cm} transition-colors duration-200 ease-in-out"
+            class="flex h-14 flex-col px-3 py-2 focus:z-10 {cm} transition-colors duration-200 ease-in-out"
           >
             <time
               datetime={dateStr}

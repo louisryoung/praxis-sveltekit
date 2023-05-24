@@ -29,7 +29,7 @@
     crosshair: {
       horzLine: {
         visible: true,
-        labelVisible: true, 
+        labelVisible: true,
         labelBackgroundColor: 'rgba(20, 184, 166, 0.5)',
       },
       vertLine: {

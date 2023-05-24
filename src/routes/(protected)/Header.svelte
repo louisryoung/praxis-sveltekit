@@ -7,6 +7,7 @@
   import { fixedHeader } from '$lib/stores/components';
   import CircleSpinner from '$lib/components/loaders/spinners/CircleSpinner.svelte';
   import { scale } from 'svelte/transition';
+  import DateRange from 'svelte-date-range-select';
 
   export let scrollContainer: HTMLElement | null = null;
 
@@ -52,14 +53,26 @@
 
 <header
   bind:this={el}
-  class="fixed top-0 right-0 z-10 h-[var(--app-header-height)] w-full translate-y-0 border-b border-b-neutral-200 dark:border-b-neutral-800 md:w-[calc(100%-var(--app-sidebar-width))] {visible
+  class="fixed right-0 top-0 z-10 h-[var(--app-header-height)] w-full translate-y-0 border-b border-b-neutral-200 dark:border-b-neutral-800 md:w-[calc(100%-var(--app-sidebar-width))] {visible
     ? 'show'
     : 'invisible'} bg-white dark:bg-black {$fixedHeader
     ? 'transition-none'
     : 'transition-[transform,color] duration-300 [&:not(.show):not(:focus-within)]:visible [&:not(.show):not(:focus-within)]:-translate-y-[calc(100%+5rem)] [&:not(.show):not(:focus-within)]:transition-none'}"
 >
-  <div class="flex h-full items-center gap-4  py-2 px-8  sm:gap-6 lg:gap-8">
-    <ThemeToggle class="ml-auto" />
+  <div class="flex h-full items-center justify-end px-8 py-2 sm:gap-4 lg:gap-6">
+    <div class="date-range-picker flex items-center">
+      <DateRange />
+      <select
+        name="trading_accounts"
+        id="trading-accounts"
+        class="ml-4 block w-40 rounded-md border-neutral-300 pr-12 shadow-sm transition-colors duration-300 ease-in-out focus:border-teal-500 focus:ring-teal-500 dark:border-neutral-700 dark:bg-black dark:text-white sm:text-sm"
+      >
+        {#each $page?.data?.tradingAccounts || [] as tradingAccount}
+          <option value="volvo">{tradingAccount.name}</option>
+        {/each}
+      </select>
+    </div>
+    <ThemeToggle />
     <button
       type="button"
       class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 dark:focus:ring-offset-black"
@@ -77,7 +90,7 @@
     </button>
     {#if showOptions}
       <div
-        class="absolute top-0 right-0 z-20 mt-14 mr-8 w-56 origin-top-right divide-y divide-neutral-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-neutral-900 dark:bg-black dark:text-white dark:ring-white dark:ring-opacity-20"
+        class="absolute right-0 top-0 z-20 mr-8 mt-14 w-56 origin-top-right divide-y divide-neutral-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-neutral-900 dark:bg-black dark:text-white dark:ring-white dark:ring-opacity-20"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"

@@ -14,6 +14,11 @@
       href: '/',
     },
     {
+      name: 'Trading Accounts',
+      icon: 'accounts',
+      href: '/tradingaccounts',
+    },
+    {
       name: 'My Trades',
       icon: 'arrow-trending-up',
       href: '/trades',
@@ -88,7 +93,7 @@
   class="relative hidden flex-col items-center justify-start border-r border-r-neutral-200 bg-transparent dark:border-neutral-800 md:flex"
 >
   <div
-    class="absolute top-16 right-0 z-[11] translate-x-1/2 -translate-y-1/2 scale-125 rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black dark:text-white"
+    class="absolute right-0 top-16 z-[11] -translate-y-1/2 translate-x-1/2 scale-125 rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black dark:text-white"
   >
     <button type="button" class="p-1.5" on:click={handleToggle}>
       <svg
@@ -112,7 +117,8 @@
     class="relative mt-16 inline-flex w-full items-start justify-start text-left text-white"
   />
   <nav class="w-full">
-    <ul class="mt-16 flex w-full flex-col items-center justify-start">
+    <img src="favicon.png" alt="" />
+    <ul class="mt-2 flex w-full flex-col items-center justify-start">
       {#each navItems as item (item.name)}
         {@const active = activeMatch === item.href}
         <li class="w-full">

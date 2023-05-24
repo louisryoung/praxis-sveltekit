@@ -48,6 +48,27 @@ export const authenticate = async (credentials: {
   };
 };
 
+export const updateProfile = async (data: Partial<User>) => {
+  const { id, ...payload } = data;
+
+  await UserSchema.updateOne(
+    { id },
+    {
+      $set: payload,
+    }
+  );
+
+  const user = await UserSchema.findOne({
+    id: id,
+  });
+
+  if (!user) {
+    throw 'Faild to update profile';
+  }
+
+  return user;
+};
+
 export const register = async (data: Partial<User> & { password: string }) => {
   const REGISTRATION_ERROR = new Error('Failed to register user');
   const hashedPassword = await hashPassword(data.password, getRandomSalt());

@@ -97,14 +97,14 @@
 
 <!-- Trade table (small breakpoint and up) -->
 <div class="hidden sm:block">
-  <div class="mx-auto md:max-w-[92rem] 3xl:max-w-[105rem] px-4 sm:px-6 lg:px-8">
+  <div class="3xl:max-w-[105rem] mx-auto px-4 sm:px-6 md:max-w-[92rem] lg:px-8">
     <div class="mt-2 flex flex-col">
       <div
         class="scrollbar min-w-full overflow-hidden overflow-x-auto align-middle shadow dark:shadow-neutral-700 sm:rounded-lg"
       >
         <TradeTable {trades} {columns} />
         <div
-          class="sticky left-0 bottom-0 flex w-full items-center justify-between border-t border-gray-200 bg-white px-4 py-3 dark:border-neutral-700 dark:bg-black sm:px-6"
+          class="sticky bottom-0 left-0 flex w-full items-center justify-between border-t border-gray-200 bg-white px-4 py-3 dark:border-neutral-700 dark:bg-black sm:px-6"
         >
           <div class="flex flex-1 justify-between sm:hidden">
             <a

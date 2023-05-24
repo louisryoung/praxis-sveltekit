@@ -36,7 +36,7 @@
   >
     <ol
       role="list"
-      class="flex max-w-3xl items-start py-3 px-4 sm:px-8 xl:px-16"
+      class="flex max-w-3xl items-start px-4 py-3 sm:px-8 xl:px-16"
     >
       <li class="mr-2 md:mr-3 lg:mr-4">
         <div>

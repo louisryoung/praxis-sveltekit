@@ -27,7 +27,7 @@
   class="scrollbar relative flex h-full max-h-full w-full flex-col pb-16 [&::-webkit-scrollbar]:w-2.5"
 >
   <Breadcrumb class="xl:!flex" />
-  <div class="mx-auto w-full max-w-[92rem] py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
+  <div class="mx-auto w-full max-w-[92rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
     <div class="flex w-full items-center justify-start gap-2">
       <button
         class="relative inline-flex items-center rounded-md border border-neutral-300 bg-white px-3 py-1 text-sm font-medium leading-6 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-black dark:text-neutral-300 dark:hover:bg-neutral-900"
@@ -51,15 +51,16 @@
       </button>
     </div>
     <h2
-      class="mt-10 mb-2 flex items-center justify-start gap-2 text-3xl font-semibold capitalize leading-6 dark:text-white"
+      class="mb-2 mt-10 flex items-center justify-start gap-2 text-3xl font-semibold capitalize leading-6 dark:text-white"
     >
       notebook
-      <Tag text={data?.notebook?.type} color={[20, 184, 166]} showBullet class="!px-3.5">
-        <span
-          slot="text"
-          let:text
-          class="text-[0.65rem] font-bold uppercase"
-        >
+      <Tag
+        text={data?.notebook?.type}
+        color={[20, 184, 166]}
+        showBullet
+        class="!px-3.5"
+      >
+        <span slot="text" let:text class="text-[0.65rem] font-bold uppercase">
           {text}
         </span>
       </Tag>
