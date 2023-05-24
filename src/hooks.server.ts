@@ -2,9 +2,6 @@ import { sequence } from '@sveltejs/kit/hooks';
 import { Toucan } from 'toucan-js';
 import * as cookie from 'cookie';
 import {
-  ENABLE_SENTRY,
-  SENTRY_DSN,
-  MODE,
   SECRET_KEY,
 } from '$env/static/private';
 import { refreshToken } from '$lib/server/auth';
@@ -88,21 +85,21 @@ export const handle: Handle = sequence(
   handleSSR
 );
 
-export const handleError: HandleServerError = ({ error, event }) => {
-  if (ENABLE_SENTRY === 'true') {
-    const Sentry = new Toucan({
-      dsn: SENTRY_DSN,
-      request: event.request,
-    });
-    Sentry.setTags({ environment: MODE });
-    Sentry.setExtras({ event });
-    Sentry.captureException(error);
-  }
+// export const handleError: HandleServerError = ({ error, event }) => {
+//   if (ENABLE_SENTRY === 'true') {
+//     const Sentry = new Toucan({
+//       dsn: SENTRY_DSN,
+//       request: event.request,
+//     });
+//     Sentry.setTags({ environment: MODE });
+//     Sentry.setExtras({ event });
+//     Sentry.captureException(error);
+//   }
 
-  console.error(error);
+//   console.error(error);
 
-  return {
-    message: 'An error occurred',
-    code: 500,
-  };
-};
+//   return {
+//     message: 'An error occurred',
+//     code: 500,
+//   };
+// };
