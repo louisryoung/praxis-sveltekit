@@ -199,7 +199,7 @@
           </div>
         </div>
       </div>
-      <div class="h-8 bg-gradient-to-b from-white dark:from-black">
+      <div class="h-8 bg-gradient-to-b from-white px-4 mt-1 dark:from-black">
         <button
           type="button"
           class="rounded-lg border border-neutral-200 px-4 py-2 text-sm transition-colors duration-200 ease-in-out hover:bg-neutral-100 dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-900"
