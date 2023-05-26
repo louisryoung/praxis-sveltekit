@@ -247,7 +247,7 @@
           class="flex items-center text-2xl font-medium text-neutral-900 dark:text-white"
         >
           <img
-            src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&amp;format=auto&amp;height=512&amp;version=1582611188&amp;width=512"
+            src={data?.user?.photo}
             class="mr-4 w-12 rounded-full"
             alt="profile"
           />

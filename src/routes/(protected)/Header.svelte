@@ -8,11 +8,11 @@
   import CircleSpinner from '$lib/components/loaders/spinners/CircleSpinner.svelte';
   import { scale } from 'svelte/transition';
   import DateRange from 'svelte-date-range-select';
+  import { data } from 'highcharts';
 
   export let scrollContainer: HTMLElement | null = null;
 
   let el: HTMLElement;
-
   let visible = true;
   let atTop = true;
   // Prevents navbar to show/hide when clicking in docs sidebar
@@ -84,7 +84,7 @@
       <span class="sr-only">Open user menu</span>
       <img
         class="h-8 w-8 rounded-full"
-        src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        src={$page?.data?.user?.photo}
         alt=""
       />
     </button>
